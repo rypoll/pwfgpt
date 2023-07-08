@@ -11,7 +11,7 @@ load_dotenv()
 # Set up OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-st.header("HormoziGPT - By Liam Ottley")
+st.header("pwfGPT - By Ryan Pollard")
 
 # Define chat history storage
 if "history" not in st.session_state:
@@ -35,10 +35,10 @@ def generate_response():
     })
 
     # Perform semantic search and format results
-    search_results = semantic_search(st.session_state.prompt, top_k=3)
+    search_results = semantic_search(st.session_state.prompt, top_k=4)
     context = ""
     for i, (title, transcript) in enumerate(search_results):
-        context += f"Snippet from: {title}\n {transcript}\n\n"
+        context += f"Snippet from:\n Video title: {title}\n Snippet: {transcript}\n\n"
 
     # Generate human prompt template and convert to API message format
     query_with_context = prompts.human_template.format(query=st.session_state.prompt, context=context)
@@ -61,7 +61,7 @@ def generate_response():
 # User input prompt
 user_prompt = st.text_input("Enter your prompt:",
                             key="prompt",
-                            placeholder="e.g. 'Write me a business plan to scale my coaching business'",
+                            placeholder="e.g. 'Give me advice on texting in online dating",
                             on_change=generate_response
                             )
 

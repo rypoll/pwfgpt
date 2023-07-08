@@ -43,7 +43,7 @@ def semantic_search(query, **kwargs):
         res = res.json()
         titles = [r["metadata"]["title"] for r in res["matches"]]
         transcripts = [r["metadata"]["transcript"] for r in res["matches"]]
-        return list(zip(titles, transcripts))
+        return list(zip(transcripts, titles))
     except Exception as e:
         print(f"Error in semantic search: {e}")
         raise

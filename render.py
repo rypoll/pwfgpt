@@ -3,9 +3,9 @@ import re
 
 
 bot_msg_container_html_template = '''
-<div style='background-color: #FFFFFF; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
+<div style='background-color: #1E1E1E; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
     <div style="width: 20%; display: flex; justify-content: center">
-        <img src="https://yt3.googleusercontent.com/xGH1BCpEHp4V0hRXEpKUbudZy2zxon3z7JnnAXngiW-8374wuiFolwYf6wmgVbKr-_RmqBHJrA=s176-c-k-c0x00ffffff-no-rj" style="max-height: 50px; max-width: 50px; border-radius: 50%;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxL9tgfqi_4WS7xLbOWtIlQGvDLFPs8_1r-Q&usqp=CAU" style="max-height: 50px; max-width: 50px; border-radius: 50%;">
     </div>
     <div style="width: 80%;">
         $MSG
@@ -14,12 +14,12 @@ bot_msg_container_html_template = '''
 '''
 
 user_msg_container_html_template = '''
-<div style='background-color: #FFFFFF; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
+<div style='background-color: #333333; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
     <div style="width: 78%">
         $MSG
     </div>
     <div style="width: 20%; margin-left: auto; display: flex; justify-content: center;">
-        <img src="https://yt3.googleusercontent.com/dddKZKUsIKmDM0lrA5sDhgrvYBQKRtJzrJ-NtVM-aAznZpYCJ0wGYIvmvKL3_0uxbYLnRVEA=s176-c-k-c0x00ffffff-no-rj" style="max-width: 50px; max-height: 50px; float: right; border-radius: 50%;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvwf00lGTUM5dS2Nk1k99Rjr36a9sr1Ld8ci31CL5Mi7NZwSGci0jt4o8IaMNfuhyS_NU&usqp=CAU" style="max-width: 50px; max-height: 50px; float: right; border-radius: 50%;">
     </div>    
 </div>
 '''
@@ -70,4 +70,3 @@ def render_chat(**kwargs):
     if "figs" in kwargs:
         for f in kwargs["figs"]:
             st.plotly_chart(f, use_container_width=True)
-
