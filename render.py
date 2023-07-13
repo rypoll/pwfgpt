@@ -3,7 +3,7 @@ import re
 
 
 bot_msg_container_html_template = '''
-<div style='background-color: #1E1E1E; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
+<div style='background-color: #333333; color: #FFFFFF; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
     <div style="width: 20%; display: flex; justify-content: center">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxL9tgfqi_4WS7xLbOWtIlQGvDLFPs8_1r-Q&usqp=CAU" style="max-height: 50px; max-width: 50px; border-radius: 50%;">
     </div>
@@ -11,10 +11,17 @@ bot_msg_container_html_template = '''
         $MSG
     </div>
 </div>
+<script>
+    function scrollToBottom() {
+        var chatContainer = document.getElementById('chat-container');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+</script>
 '''
 
+
 user_msg_container_html_template = '''
-<div style='background-color: #333333; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
+<div style='background-color: #222222; color: #FFFFFF; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
     <div style="width: 78%">
         $MSG
     </div>
@@ -23,6 +30,7 @@ user_msg_container_html_template = '''
     </div>    
 </div>
 '''
+
 
 def render_article_preview(docs, tickers):
     message = f"<h5>Here are relevant articles for {tickers} that may answer your question. &nbsp; &nbsp;</h5>"

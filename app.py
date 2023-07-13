@@ -42,7 +42,7 @@ name, authentication_status, username = authenticator.login("Login", "main")
 if authentication_status:
     authenticator.logout('Logout', 'main', key='unique_key')
     st.write(f'Welcome *{name}*')
-    st.title('A dating chatbot')
+    st.title('Your personal dating coach')
 
     # Construct messages from chat history
     # def construct_messages(history): # old ottley version 
