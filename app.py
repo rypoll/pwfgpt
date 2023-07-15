@@ -15,11 +15,12 @@ from yaml.loader import SafeLoader
 import json
 
 
+
 tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
 
 load_dotenv()
-message_quota = 20
-time_quota = 600  # in seconds
+message_quota = 1
+time_quota = 60 # in seconds
 time_quota_minutes = int(round(time_quota / 60))
 hide_st_style = """
             <style>
@@ -55,7 +56,7 @@ authenticator = stauth.Authenticate(
 # Add a login screen
 name, authentication_status, username = authenticator.login("Login", "main")
 
-if authentication_status:
+if authentication_status is not None and authentication_status:
     authenticator.logout('Logout', 'main', key='unique_key')
     st.write(f'Welcome *{name}*')
     st.title('Your personal dating coach')
@@ -226,6 +227,12 @@ if authentication_status:
 
     # Hide the links to the widgets
     hide_links = True
+elif authentication_status is False:
+    st.error('Username/password is incorrect')
+    hide_links = False
+elif authentication_status is None:
+    st.warning('Please enter your username and password')
+    hide_links = False
 else:
     hide_links = False
 
@@ -235,47 +242,14 @@ if not hide_links:
     with register_user_expander:
         try:
             if authenticator.register_user('Register new user', preauthorization=False):
-                st.success('User registered successfully')
-        except Exception as e:
-            st.error(e)
-            
-# Password Reset Widget
-if not hide_links:
-    reset_password_expander = st.expander("Reset password")
-    with reset_password_expander:
-        try:
-            if authenticator.reset_password(username, 'Reset password'):
-                st.success('Password modified successfully')
-        except Exception as e:
-            st.error(e)
-
-
-
-# Forgot Password Widget
-if not hide_links:
-    forgot_password_expander = st.expander("Forgot password")
-    with forgot_password_expander:
-        try:
-            username_forgot_pw, email_forgot_password, random_password = authenticator.forgot_password('Forgot password')
-            if username_forgot_pw:
-                st.success('New password sent securely')
-                # Random password to be transferred to the user securely
-            else:
-                st.error('Username not found')
-        except Exception as e:
-            st.error(e)
-
-# Forgot Username Widget
-if not hide_links:
-    forgot_username_expander = st.expander("Forgot username")
-    with forgot_username_expander:
-        try:
-            username_forgot_username, email_forgot_username = authenticator.forgot_username('Forgot username')
-            if username_forgot_username:
-                st.success('Username sent securely')
-                # Username to be transferred to the user securely
-            else:
-                st.error('Email not found')
+                st.success('User registered successfully. Please use these details to log in.')
+                # Set the authentication status and username
+                authentication_status = True
+                username = authenticator.username
+                st.session_state.logged_in = True  # Set the logged_in session state variable to True
+                st.session_state.username = username  # Store the username in session state
+                st.session_state.history = []  # Clear chat history for the new user
+                st.session_state.warning_message = False  # Reset warning message
         except Exception as e:
             st.error(e)
 

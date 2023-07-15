@@ -8,6 +8,38 @@ credentials:
       email: admin@admin.com
       name: admin
       password: $2b$12$73aqu8GakjEX2qb.Zdt04eQOGPG.HOoV2qiVNUZDGCEPZQgK9t79S
+    admin2:
+      email: rydrallop@gmail.com
+      name: nayr
+      password: $2b$12$Vq/93I9OUaC3Xhitgyv/HOyZmEYmL0jRzQ5fOLOXaWQgYk536RbGu
+    admin3:
+      email: admin3@admin3.com
+      name: admin3
+      password: $2b$12$fdRhucbYNtbGYmYLzRbBlO8P7dKlfZInAZVsBf6kdMBkYdYXfV0N6
+    admin4:
+      email: admin4@admin4.com
+      name: admin4
+      password: $2b$12$YJALW0EBdZZ0YqzDgEPxFuGQYn7tPm7nGvVO4H53rkM/T2CKXG0tS
+    admin5:
+      email: admin5@admin5.com
+      name: admin5
+      password: $2b$12$shRA0cvMP9ozOYO4Socn9.mLY.iuMrjFfkJOge7NojFSj2blksOBK
+    admin6:
+      email: admin6@admin6.com
+      name: admin6
+      password: $2b$12$fWigm7nl045JVrxinKPeh.V5AvZXrODqHmdpuTs0qiql5z/aR3obW
+    admin7:
+      email: admin7@admin7.com
+      name: admin7
+      password: $2b$12$uaiyuFH4.uc0atx2TU/mE.kcRHDuog5LsNk8NSdh8VNAvIrSDm4xW
+    admin8:
+      email: admin8@admin8.com
+      name: admin8
+      password: $2b$12$s7P.lUQHJkjfa1UU92pmbO8cr37w0qlU4XYj4g2Qz3FB3HMR1W5me
+    admin9:
+      email: admin9@admin9.com
+      name: admin9
+      password: $2b$12$nMjCoWPmmtbggRMjgBliJejCeZpLhHHRt2ThvpAvPoPHP1yUpdlYO
     rypoll:
       email: rypoll@gmail.com
       name: Ryan Pollard
