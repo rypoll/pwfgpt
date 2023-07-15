@@ -1,0 +1,4 @@
+/* Hide the GitHub icon */
+.stAppGithubIcon {
+    display: none !important;
+}

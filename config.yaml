@@ -1,22 +1,20 @@
+cookie:
+  expiry_days: 30
+  key: random_signature_key
+  name: random_cookie_name
 credentials:
   usernames:
+    admin:
+      email: admin@admin.com
+      name: admin
+      password: $2b$12$73aqu8GakjEX2qb.Zdt04eQOGPG.HOoV2qiVNUZDGCEPZQgK9t79S
     rypoll:
       email: rypoll@gmail.com
       name: Ryan Pollard
       password: $2b$12$zyC4v2I69b4Bxf6EF4mreuPVMOTnaP18pBbNcpWe/BvjUYOw5lXFS
     user2:
       password: hashed_password_2
-    admin:
-      email: admin@admin.com
-      name: admin
-      password: $2b$12$73aqu8GakjEX2qb.Zdt04eQOGPG.HOoV2qiVNUZDGCEPZQgK9t79S
-
-cookie:
-  expiry_days: 30
-  key: random_signature_key
-  name: random_cookie_name
-
 preauthorized:
   emails:
-    - rydrallop@gmail.com
-    - preauth_user2@example.com
+  - rydrallop@gmail.com
+  - preauth_user2@example.com
