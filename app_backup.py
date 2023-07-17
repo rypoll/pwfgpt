@@ -53,7 +53,25 @@ name, authentication_status, username = authenticator.login("Login", "main")
 if authentication_status:
     authenticator.logout('Logout', 'main', key='unique_key')
     st.write(f'Welcome *{name}*')
-    st.title('Your personal dating coach')
+
+
+    st.markdown(
+        """
+        <h2>Welcome</h2>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        ChadTDG is a GPT based chatbot, trained on advice that various dating coaches give out.
+        The bot can be used to ask questions about online dating, real-life dating, and relationships.
+
+        It serves as your own personal date/relationship coach.
+        """,
+        unsafe_allow_html=True
+    )
+
 
     # Construct messages from chat history
     def construct_messages(history):

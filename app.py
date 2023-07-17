@@ -35,7 +35,12 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # Set up OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-st.header("pwfGPT - By Ryan Pollard")
+st.markdown(
+    """
+    <h1 style="text-align: center;">ChadTDG - Your Personal Date Coach</h1>
+    """,
+    unsafe_allow_html=True
+)
 
 # Define chat history storage
 if "history" not in st.session_state:
@@ -58,8 +63,21 @@ name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status is not None and authentication_status:
     authenticator.logout('Logout', 'main', key='unique_key')
-    st.write(f'Welcome *{name}*')
-    st.title('Your personal dating coach')
+    st.title(f'Welcome *{name}*')
+    import streamlit as st
+
+
+    st.markdown(
+        """
+        ChadTDG (The Date Guru) is a GPT based chatbot, trained on thousands of hours of advice that various successful dating coaches have given to their clients - helping them getting the results they want. 
+        This can be used to seek advice about online dating, real-life dating and relationships.
+
+        It serves as your own personal date/relationship coach.
+        """,
+        unsafe_allow_html=True
+    )
+
+
     quota_text = f"Quota: {message_quota} messages every {time_quota_minutes} minutes"
     st.write(quota_text)
 
@@ -213,12 +231,12 @@ if authentication_status is not None and authentication_status:
             st.write(bot_msg_container_html_template.replace("$MSG", message["message"]), unsafe_allow_html=True)
 
     if st.session_state.warning_message:
-        st.error(f"Your message limit of {message_quota} messages per hour has been reached. Please wait {minutes} minute{'s' if minutes != 1 else ''} and {seconds} second{'s' if seconds != 1 else ''} for the message limit reset and try again")
+        st.error(f"Your message limit of {message_quota} messages per hour has been reached. Please wait {minutes} minute{'s' if minutes != 1 else ''} and {seconds} second{'s' if seconds != 1 else ''} for the message limit to reset and try again")
 
     st.text_input(
-        "Enter your prompt:",
+        "Send a message:",
         key="prompt",
-        placeholder="e.g. 'Give me advice on texting in online dating'",
+        placeholder="e.g. 'Give me advice on texting on online dating apps'",
         on_change=generate_response,
         disabled=user_data["message_count"] >= message_quota + 1  # Disable input field when message limit is exceeded
     )

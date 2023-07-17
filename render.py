@@ -1,21 +1,30 @@
 import streamlit as st
 import re
+import base64
+import os
 
+def get_static_url(path):
+    with open(path, "rb") as file:
+        encoded_string = base64.b64encode(file.read()).decode()
+    return f'data:image/png;base64,{encoded_string}'
 
-bot_msg_container_html_template = '''
+image_path = os.path.join("images", "chad-chat-icon-v1-gpt-colors-comic.png")
+image_url = get_static_url(image_path)
+
+bot_msg_container_html_template = f'''
 <div style='background-color: #333333; color: #FFFFFF; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex'>
     <div style="width: 20%; display: flex; justify-content: center">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxL9tgfqi_4WS7xLbOWtIlQGvDLFPs8_1r-Q&usqp=CAU" style="max-height: 50px; max-width: 50px; border-radius: 50%;">
+        <img src="{image_url}" style="max-height: 50px; max-width: 50px; border-radius: 50%;">
     </div>
     <div style="width: 80%;">
         $MSG
     </div>
 </div>
 <script>
-    function scrollToBottom() {
+    function scrollToBottom() {{
         var chatContainer = document.getElementById('chat-container');
         chatContainer.scrollTop = chatContainer.scrollHeight;
-    }
+    }}
 </script>
 '''
 
