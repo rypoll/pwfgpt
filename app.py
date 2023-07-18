@@ -19,8 +19,8 @@ import json
 tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
 
 load_dotenv()
-message_quota = 1
-time_quota = 60 # in seconds
+message_quota = 20
+time_quota = 600 # in seconds
 time_quota_minutes = int(round(time_quota / 60))
 hide_st_style = """
             <style>
