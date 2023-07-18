@@ -37,7 +37,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 st.markdown(
     """
-    <h1 style="text-align: center;">ChadTDG - Your Personal Date Coach</h1>
+    <h1 style="text-align: center;">ChadTDC - Your Personal Date Coach</h1>
     """,
     unsafe_allow_html=True
 )
@@ -69,7 +69,7 @@ if authentication_status is not None and authentication_status:
 
     st.markdown(
         """
-        ChadTDG (The Date Guru) is a GPT based chatbot, trained on thousands of hours of advice that various successful dating coaches have given to their clients - helping them getting the results they want. 
+        ChadTDC, The Date Coach,  is a GPT based chatbot, trained on thousands of hours of advice that various successful dating coaches have given to their clients - helping them getting the results they want. 
         This can be used to seek advice about online dating, real-life dating and relationships.
 
         It serves as your own personal date/relationship coach.
